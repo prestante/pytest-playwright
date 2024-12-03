@@ -1,4 +1,9 @@
+"""
+This is a test module example from playwright.dev with a standalone code for debugging
+"""
+
 import re
+from time import sleep
 from playwright.sync_api import Page, expect
 
 def test_has_title(page: Page):
@@ -6,6 +11,9 @@ def test_has_title(page: Page):
 
     # Expect a title "to contain" a substring.
     expect(page).to_have_title(re.compile("playwright", re.IGNORECASE))
+
+    sleep(1)
+
 
 def test_get_started_link(page: Page):
     page.goto("https://playwright.dev/")
@@ -15,6 +23,8 @@ def test_get_started_link(page: Page):
 
     # Expects page to have a heading with the name of Installation.
     expect(page.get_by_role("heading", name="Installation")).to_be_visible()
+
+    sleep(1)
 
 
 if __name__ == "__main__":
