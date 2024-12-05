@@ -1,0 +1,8 @@
+# Run all tests from test_11.py module in a browser in parallel
+pytest test_11.py --headed --numprocesses auto
+
+# Run playwright in a codegen mode where we can look for locators and generate code on the fly making actions in a browser
+playwright codegen yandex.ru
+
+# Run all tests from test_11.py module in debug mode
+PWDEBUG=1 pytest -s -k test_11
