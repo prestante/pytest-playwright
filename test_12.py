@@ -1,5 +1,3 @@
-import pytest
-from time import sleep
 from playwright.sync_api import Page, expect
 
 def test_add_to_cart(logged_page: Page) -> None:
@@ -8,8 +6,7 @@ def test_add_to_cart(logged_page: Page) -> None:
     print(f"{lot_title} {lot_price}")
 
     logged_page.locator('[data-test="add-to-cart-test.allthethings()-t-shirt-(red)"]').click()
-    expect(logged_page.locator('[data-test="shopping-cart-badge"]')).to_be_visible()
+    expect(logged_page.locator('[data-test="shopping-cart-badge"]')).to_be_visible(timeout=500)
 
-
-
-    # sleep(1)
+    # logged_page.wait_for_timeout(1000)  # This is made to pause the test to see the final state of the page
+    # logged_page.pause()  # Pause can be used for debugging purposes in headed mode.
